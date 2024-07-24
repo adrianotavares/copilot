@@ -1,4 +1,3 @@
-# Github Copilot Experiment
 # Remove Background from Image
 
 This Python script uses the `removebg` library to remove the background from an image file.
