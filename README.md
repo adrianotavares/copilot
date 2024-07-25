@@ -12,7 +12,7 @@ This Python script uses the `removebg` library to remove the background from an 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/yourrepository.git
+git clone https://github.com/adrianotavares/copilot
 ```
 
 2. Navigate to the repository directory:
@@ -24,7 +24,7 @@ cd yourrepository
 3. Install the required Python libraries:
 
 ```bash
-pip install -r lib
+pip install -r removebg
 ```
 
 ## Usage
