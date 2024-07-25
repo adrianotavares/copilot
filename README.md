@@ -32,19 +32,18 @@ pip install -r lib
 To use this script, run the following command:
 
 ```bash
-python script.py input_file output_file
+python script.py input_file 
 ```
 
-Replace `input_file` with the path to the input image file and `output_file` with the path to save the output image file without background.
+Replace `input_file` with the path to the input image file.
 
 ## Function
 
-The script contains a function `remove_background(input_file, output_file)` that removes the background from an image file.
+The script contains a function `remove_background(input_file)` that removes the background from an image file.
 
 ### Parameters:
 
 - `input_file` (str): The path to the input image file.
-- `output_file` (str): The path to save the output image file without background.
 
 ## License
 
