@@ -24,7 +24,7 @@ cd yourrepository
 3. Install the required Python libraries:
 
 ```bash
-pip install -r requirements.txt
+pip install -r lib
 ```
 
 ## Usage
