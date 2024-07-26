@@ -11,8 +11,14 @@ def remove_background(input_file):
     Returns:
     None
     """
-    rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
-    rmbg.remove_background_from_img_file(input_file)
+    # exception handling if the file is not found or the API key is invalid
+    try:
+        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
+        rmbg.remove_background_from_img_file(input_file)
+    except FileNotFoundError:
+        print("The file is not found")
+    except Exception as e:
+        print("An error occured", e)
 
 def main():
     """
