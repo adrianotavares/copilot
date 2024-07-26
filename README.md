@@ -12,19 +12,19 @@ This Python script uses the `removebg` library to remove the background from an 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/adrianotavares/copilot
+$ git clone https://github.com/adrianotavares/copilot
 ```
 
 2. Navigate to the repository directory:
 
 ```bash
-cd yourrepository
+$ cd yourrepository
 ```
 
 3. Install the required Python libraries:
 
 ```bash
-pip install -r removebg
+$ pip install -r removebg
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ pip install -r removebg
 To use this script, run the following command:
 
 ```bash
-python script.py input_file 
+$ python script.py input_file 
 ```
 
 Replace `input_file` with the path to the input image file.
@@ -50,7 +50,7 @@ The script contains a function `remove_background(input_file)` that removes the 
 Use options `-h, --help` to see the command line instructions
 
 ```bash
-python script.py -help
+$ python script.py -help
 
 usage: script.py [-h] input_file
 
