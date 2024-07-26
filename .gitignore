@@ -138,3 +138,7 @@ cython_debug/
 # vscode settings
 .vscode
 vscode/
+
+# image files
+unnamed.jpg
+unnamed.jpg_no_bd.png

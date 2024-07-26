@@ -5,7 +5,11 @@ This Python script uses the `removebg` library to remove the background from an 
 ## Requirements
 
 - Python 3
-- Python lib `removebg` 
+- Python libs 
+  `argparse`
+  `removebg`
+  `Pillow`
+  `requests` 
 
 ## Installation
 
@@ -25,29 +29,41 @@ cd yourrepository
 
 ```bash
 pip install -r removebg
+pip install -r Pillow
 ```
 
 ## Usage
 
-To use this script, run the following command:
+### Remove Background
+
+To remove the background from an image, run the following command:
+
+- ```-rb```: Flag to remove the background from the image.
+- ```input_file```: The path to the image file to be processed.
+
+### Resize Image
+
+To resize an image, run the following command:
+
+- ```-ri```: Flag to resize the image.
+- ```width,height```: The new dimensions of the image (width, height).
+- ```input_file```: The path to the image file to be processed.
+
+### Example
+
+To remove the background from an image called image.jpg:
 
 ```bash
-python script.py input_file 
+python script.py -rb image.jpg
 ```
 
-Replace `input_file` with the path to the input image file.
+To resize an image called image.jpg to 100x200 pixels:
 
-## Function
+```bash
+python script.py -ri 100,200 image.jpg
+```
 
-The script contains a function `remove_background(input_file)` that removes the background from an image file.
-
-### Parameters:
-
-- `input_file` (str): The path to the input image file.
-
-### Help:
-
-Use options `-h, --help` to see the command line instructions
+To help `-h, --help`, to see the command line instructions
 
 ```bash
 python script.py -help
@@ -56,15 +72,17 @@ python script.py -help
 Instructions 
 
 ```bash
-usage: script.py [-h] input_file
+usage: script.py [-h] [-rb] [-ri RI] input_file
 
 Remove background from image.
 
 positional arguments:
-  input_file  The image file to remove the background from.
+  input_file  The image file to process.
 
 options:
   -h, --help  show this help message and exit
+  -rb         Remove background from image.
+  -ri RI      Resize image with specified size (width,height).
 ```
 
 ## License
