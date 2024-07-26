@@ -7,8 +7,7 @@ def remove_background(input_file):
 
     Parameters:
     input_file (str): The path to the input image file.
-    output_file (str): The path to save the output image file without background.
-
+    
     Returns:
     None
     """
