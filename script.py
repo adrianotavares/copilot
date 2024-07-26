@@ -1,7 +1,7 @@
 import argparse
+import requests
 from removebg import RemoveBg
 from PIL import Image
-import requests
 
 def remove_background(input_file):
     """
