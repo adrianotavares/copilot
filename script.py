@@ -20,7 +20,7 @@ def remove_background(input_file):
         print("The file is not found")
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 403:
-            print("API KEY error occurred")
+            print("API KEY error occurred",e)
         else:
             print(f"HTTP error occurred:",e)
     except Exception as e:
@@ -42,8 +42,8 @@ def resize_image(input_file, new_size):
         img = Image.open(input_file)
         resized_img = img.resize(new_size)
         resized_img.save(input_file)
-    except FileNotFoundError:
-        print("The file is not found")
+    except FileNotFoundError as e:
+        print("The file is not found", e)
     except Exception as e:
         print("An error occurred", e)
         
@@ -68,9 +68,6 @@ def main():
             resize_image(args.input_file, new_size)
         except ValueError as e:
             print(f"Invalid size format: {e}")
-
-if __name__ == "__main__":
-    main()
 
 if __name__ == "__main__":
     main()
