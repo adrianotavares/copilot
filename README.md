@@ -1,4 +1,4 @@
-# Remove background from image
+# Image Processing Script
 
 This Python script uses the `removebg` library to remove the background from an image file.
 
