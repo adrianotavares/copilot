@@ -25,11 +25,8 @@ def main():
     """
     parser = argparse.ArgumentParser(description='Remove background from image.')
     parser.add_argument('input_file', type=str, help='The image file to remove the background from.')
-
     args = parser.parse_args()
-
     remove_background(args.input_file)
-
 
 if __name__ == "__main__":
     main()
