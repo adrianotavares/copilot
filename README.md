@@ -45,6 +45,24 @@ The script contains a function `remove_background(input_file)` that removes the 
 
 - `input_file` (str): The path to the input image file.
 
+### Help:
+
+Use options `-h, --help` to see the command line instructions
+
+```bash
+python script.py -help
+
+usage: script.py [-h] input_file
+
+Remove background from image.
+
+positional arguments:
+  input_file  The image file to remove the background from.
+
+options:
+  -h, --help  show this help message and exit
+```
+
 ## License
 
 This project is licensed under the terms of the MIT license.
