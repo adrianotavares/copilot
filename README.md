@@ -40,6 +40,7 @@ To remove the background from an image, run the following command:
 
 - ```-rb```: Flag to remove the background from the image.
 - ```input_file```: The path to the image file to be processed.
+- API KEY : https://www.remove.bg/tools-api/api-commandline 
 
 ### Resize Image
 

@@ -24,7 +24,7 @@ def remove_background(input_file):
         else:
             print(f"HTTP error occurred:",e)
     except Exception as e:
-        print("An error occured", e)
+        print("An error occured", e)         
 
 # new function to resize the image receive the arguments image path, -r, the new size
 def resize_image(input_file, new_size):
