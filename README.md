@@ -10,7 +10,8 @@ This Python script uses the `removebg` library to remove the background from an 
   `removebg`
   `Pillow`
   `requests`
-  `colorama` 
+  `colorama`
+  `json` 
 
 ## Installation
 
