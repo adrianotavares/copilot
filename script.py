@@ -24,10 +24,7 @@ def remove_background(input_file):
         new_file = input_file.replace('.', '_no_bg.')
         print(f"{Fore.GREEN}New file created: {new_file}")
     except requests.exceptions.HTTPError as e:
-        if e.response.status_code == 403:
             print(f"{Fore.RED}API KEY error occurred: {e}")
-        else:
-            print(f"{Fore.RED}HTTP error occurred: {e}")
     except Exception as e:
         print(f"{Fore.RED}An error occured: {e}")         
 
