@@ -39,11 +39,11 @@ def resize_image(input_file, ri):
         print(f"An error occurred: {e}")
 
 def get_image_size(input_file):
-    # Return the size of the image (height, width).
+    # Return the size of the image (width, height).
     try:
         img = Image.open(input_file)
         width, height = img.size
-        return height, width
+        return width, height
     except Exception as e:
         print(f"An error occurred while getting the image size: {e}")
         return None
@@ -66,7 +66,7 @@ def main():
     elif args.gs:
         size = get_image_size(args.input_file)
         if size:
-            print(f"Image: {args.input_file} size: {size}")
+            print(f"Image: {args.input_file} size: {size} (width, height)")
 
 if __name__ == "__main__":
     main()

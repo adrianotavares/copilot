@@ -65,7 +65,7 @@ To remove the background from an image called image.jpg:
 python script.py -rb image.jpg
 ```
 
-To resize an image called image.jpg to 100x200 pixels:
+To resize an image called image.jpg to 100x200 pixels (width, height):
 
 ```bash
 python script.py -ri 100,200 image.jpg
@@ -97,7 +97,7 @@ options:
   -h, --help  show this help message and exit
   -rb         Remove background from image.
   -ri RI      Resize image with specified size (width,height).
-  -gs         Get the size of the image.
+  -gs         Get the size of the image (width,height).
 ```
 
 ## License
