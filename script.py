@@ -3,9 +3,14 @@ import requests
 from removebg import RemoveBg
 from PIL import Image
 from colorama import init, Fore, Style
+import json
 
 # Initialize colorama
 init(autoreset=True)
+
+# Load configuration from config.json
+with open('config.json') as config_file:
+    config = json.load(config_file)
 
 class ColoredHelpFormatter(argparse.HelpFormatter):
     def format_help(self):
@@ -13,12 +18,10 @@ class ColoredHelpFormatter(argparse.HelpFormatter):
         return f"{Fore.BLUE}{help_text}{Style.RESET_ALL}"
         
 def remove_background(input_file):
-    # Remove the background from an image file using the RemoveBg library.
-
     try:
-        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
+        rmbg = RemoveBg(config['REMOVE_BG_API_KEY'], config['ERROR_LOG_FILE'])
         rmbg.remove_background_from_img_file(input_file)
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         print(f"{Fore.RED}The file is not found: {e}")
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 403:
@@ -29,8 +32,6 @@ def remove_background(input_file):
         print(f"{Fore.RED}An error occured: {e}")         
 
 def resize_image(input_file, ri):
-    #Resize the image file using the PIL library.
-        
     try:
          new_size = tuple(map(int, ri.split(',')))
          if len(new_size) != 2:
@@ -48,7 +49,6 @@ def resize_image(input_file, ri):
         print(f"{Fore.RED}An error occurred: {e}")
 
 def get_image_size(input_file):
-    # Return the size of the image (width, height).
     try:
         img = Image.open(input_file)
         width, height = img.size
@@ -58,8 +58,6 @@ def get_image_size(input_file):
         return None
             
 def main():
-    #Parse command-line arguments and call the appropriate function.
-    
     parser = argparse.ArgumentParser(description='Image Processing Script.', formatter_class=ColoredHelpFormatter )
     parser.add_argument('input_file', type=str, help='The image file to process.')
     parser.add_argument('-rb', action='store_true', help='Remove background from image.')
