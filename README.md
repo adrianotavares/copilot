@@ -50,6 +50,13 @@ To resize an image, run the following command:
 - ```width,height```: The new dimensions of the image (width, height).
 - ```input_file```: The path to the image file to be processed.
 
+### Image Size
+
+To get the size of the image, run the following command:
+
+- ```-gs```: Flag to get the image size.
+- ```input_file```: The path to the image file to be processed.
+
 ### Example
 
 To remove the background from an image called image.jpg:
@@ -64,6 +71,12 @@ To resize an image called image.jpg to 100x200 pixels:
 python script.py -ri 100,200 image.jpg
 ```
 
+To get the size of the image :
+
+```bash
+python script.py -gs image.jpg
+```
+
 To help `-h, --help`, to see the command line instructions
 
 ```bash
@@ -73,7 +86,7 @@ python script.py -help
 Instructions 
 
 ```bash
-usage: script.py [-h] [-rb] [-ri RI] input_file
+usage: script.py [-h] [-rb] [-ri RI] [-gs] input_file
 
 Remove background from image.
 
@@ -84,6 +97,7 @@ options:
   -h, --help  show this help message and exit
   -rb         Remove background from image.
   -ri RI      Resize image with specified size (width,height).
+  -gs         Get the size of the image.
 ```
 
 ## License
