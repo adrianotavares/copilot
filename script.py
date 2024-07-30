@@ -7,7 +7,7 @@ def remove_background(input_file):
     # Remove the background from an image file using the RemoveBg library.
 
     try:
-        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNB", "error.log")
+        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
         rmbg.remove_background_from_img_file(input_file)
     except FileNotFoundError:
         print("The file is not found")
@@ -19,10 +19,16 @@ def remove_background(input_file):
     except Exception as e:
         print("An error occured", e)         
 
-# new function to resize the image receive the arguments image path, -r, the new size
-def resize_image(input_file, new_size):
+def resize_image(input_file, ri):
     #Resize the image file using the PIL library.
-
+        
+    try:
+         new_size = tuple(map(int, ri.split(',')))
+         if len(new_size) != 2:
+            raise ValueError("Size must be a tuple of two integers (width, height).")
+    except ValueError as e:
+         print(f"Invalid size format: {e}")
+            
     try:
         img = Image.open(input_file)
         resized_img = img.resize(new_size)
@@ -45,13 +51,7 @@ def main():
     if args.rb:
         remove_background(args.input_file)
     elif args.ri:
-        try:
-            new_size = tuple(map(int, args.ri.split(',')))
-            if len(new_size) != 2:
-                raise ValueError("Size must be a tuple of two integers (width, height).")
-            resize_image(args.input_file, new_size)
-        except ValueError as e:
-            print(f"Invalid size format: {e}")
+        resize_image(args.input_file, args.ri)
 
 if __name__ == "__main__":
     main()
