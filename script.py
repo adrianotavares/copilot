@@ -15,7 +15,7 @@ def remove_background(input_file):
         if e.response.status_code == 403:
             print("API KEY error occurred",e)
         else:
-            print(f"HTTP error occurred:",e)
+            print("HTTP error occurred:",e)
     except Exception as e:
         print("An error occured", e)         
 
