@@ -7,7 +7,7 @@ def remove_background(input_file):
     # Remove the background from an image file using the RemoveBg library.
 
     try:
-        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
+        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNB", "error.log")
         rmbg.remove_background_from_img_file(input_file)
     except FileNotFoundError:
         print(f"The file is not found: {e}")
