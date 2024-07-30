@@ -21,8 +21,8 @@ def remove_background(input_file):
     try:
         rmbg = RemoveBg(config['REMOVE_BG_API_KEY'], config['ERROR_LOG_FILE'])
         rmbg.remove_background_from_img_file(input_file)
-    except FileNotFoundError as e:
-        print(f"{Fore.RED}The file is not found: {e}")
+        new_file = input_file.replace('.', '_no_bg.')
+        print(f"{Fore.GREEN}New file created: {new_file}")
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 403:
             print(f"{Fore.RED}API KEY error occurred: {e}")
@@ -43,8 +43,7 @@ def resize_image(input_file, ri):
         img = Image.open(input_file)
         resized_img = img.resize(new_size)
         resized_img.save(input_file)
-    except FileNotFoundError as e:
-        print(f"{Fore.RED}The file is not found {e}")
+        print(f"{Fore.GREEN}Image {input_file} has been resized.")
     except Exception as e:
         print(f"{Fore.RED}An error occurred: {e}")
 
@@ -56,6 +55,13 @@ def get_image_size(input_file):
     except Exception as e:
         print(f"{Fore.RED}An error occurred while getting the image size: {e}")
         return None
+
+def handle_image_file(input_file):
+    try:
+        img = Image.open(input_file)
+    except FileNotFoundError as e:
+        print(f"{Fore.RED}The file is not found {e}")
+        quit()
             
 def main():
     parser = argparse.ArgumentParser(description='Image Processing Script.', formatter_class=ColoredHelpFormatter )
@@ -65,6 +71,8 @@ def main():
     parser.add_argument('-gs', action='store_true', help='Get the size of the image.')
     
     args = parser.parse_args()
+    
+    handle_image_file(args.input_file)
 
     if args.rb:
         remove_background(args.input_file)
