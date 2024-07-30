@@ -88,7 +88,7 @@ Instructions
 ```bash
 usage: script.py [-h] [-rb] [-ri RI] [-gs] input_file
 
-Remove background from image.
+Image Processing Script.
 
 positional arguments:
   input_file  The image file to process.
@@ -97,7 +97,7 @@ options:
   -h, --help  show this help message and exit
   -rb         Remove background from image.
   -ri RI      Resize image with specified size (width,height).
-  -gs         Get the size of the image (width,height).
+  -gs         Get the size of the image.
 ```
 
 ## License

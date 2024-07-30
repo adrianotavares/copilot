@@ -51,7 +51,7 @@ def get_image_size(input_file):
 def main():
     #Parse command-line arguments and call the appropriate function.
     
-    parser = argparse.ArgumentParser(description='Remove background from image.')
+    parser = argparse.ArgumentParser(description='Image Processing Script.')
     parser.add_argument('input_file', type=str, help='The image file to process.')
     parser.add_argument('-rb', action='store_true', help='Remove background from image.')
     parser.add_argument('-ri', type=str, help='Resize image with specified size (width,height).')
