@@ -2,22 +2,26 @@ import argparse
 import requests
 from removebg import RemoveBg
 from PIL import Image
+from colorama import init, Fore
+
+# Initialize colorama
+init(autoreset=True)
 
 def remove_background(input_file):
     # Remove the background from an image file using the RemoveBg library.
 
     try:
-        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNB", "error.log")
+        rmbg = RemoveBg("k7tsZ6E5h3jXEyTLfigbMNBH", "error.log")
         rmbg.remove_background_from_img_file(input_file)
     except FileNotFoundError:
-        print(f"The file is not found: {e}")
+        print(f"{Fore.RED}The file is not found: {e}")
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 403:
-            print(f"API KEY error occurred: {e}")
+            print(f"{Fore.RED}API KEY error occurred: {e}")
         else:
-            print(f"HTTP error occurred: {e}")
+            print(f"{Fore.RED}HTTP error occurred: {e}")
     except Exception as e:
-        print(f"An error occured: {e}")         
+        print(f"{Fore.RED}An error occured: {e}")         
 
 def resize_image(input_file, ri):
     #Resize the image file using the PIL library.
@@ -25,18 +29,18 @@ def resize_image(input_file, ri):
     try:
          new_size = tuple(map(int, ri.split(',')))
          if len(new_size) != 2:
-            raise ValueError("Size must be a tuple of two integers (width, height).")
+            raise ValueError(f"{Fore.RED}Size must be a tuple of two integers (width, height).")
     except ValueError as e:
-         print(f"Invalid size format: {e}")
+         print(f"{Fore.RED}Invalid size format: {e}")
             
     try:
         img = Image.open(input_file)
         resized_img = img.resize(new_size)
         resized_img.save(input_file)
     except FileNotFoundError as e:
-        print(f"The file is not found {e}")
+        print(f"{Fore.RED}The file is not found {e}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"{Fore.RED}An error occurred: {e}")
 
 def get_image_size(input_file):
     # Return the size of the image (width, height).
@@ -45,7 +49,7 @@ def get_image_size(input_file):
         width, height = img.size
         return width, height
     except Exception as e:
-        print(f"An error occurred while getting the image size: {e}")
+        print(f"{Fore.RED}An error occurred while getting the image size: {e}")
         return None
             
 def main():
@@ -66,7 +70,7 @@ def main():
     elif args.gs:
         size = get_image_size(args.input_file)
         if size:
-            print(f"Image: {args.input_file} size: {size} (width, height)")
+            print(f"{Fore.BLUE}Image: {args.input_file} size: {size} (width, height)")
 
 if __name__ == "__main__":
     main()
