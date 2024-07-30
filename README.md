@@ -50,7 +50,7 @@ To resize an image, run the following command:
 - ```width,height```: The new dimensions of the image (width, height).
 - ```input_file```: The path to the image file to be processed.
 
-### Image Size
+### Get Image Size
 
 To get the size of the image, run the following command:
 
