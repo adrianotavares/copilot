@@ -9,7 +9,8 @@ This Python script uses the `removebg` library to remove the background from an 
   `argparse`
   `removebg`
   `Pillow`
-  `requests` 
+  `requests`
+  `colorama` 
 
 ## Installation
 
