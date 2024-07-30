@@ -2,11 +2,16 @@ import argparse
 import requests
 from removebg import RemoveBg
 from PIL import Image
-from colorama import init, Fore
+from colorama import init, Fore, Style
 
 # Initialize colorama
 init(autoreset=True)
 
+class ColoredHelpFormatter(argparse.HelpFormatter):
+    def format_help(self):
+        help_text = super().format_help()
+        return f"{Fore.BLUE}{help_text}{Style.RESET_ALL}"
+        
 def remove_background(input_file):
     # Remove the background from an image file using the RemoveBg library.
 
@@ -55,7 +60,7 @@ def get_image_size(input_file):
 def main():
     #Parse command-line arguments and call the appropriate function.
     
-    parser = argparse.ArgumentParser(description='Image Processing Script.')
+    parser = argparse.ArgumentParser(description='Image Processing Script.', formatter_class=ColoredHelpFormatter )
     parser.add_argument('input_file', type=str, help='The image file to process.')
     parser.add_argument('-rb', action='store_true', help='Remove background from image.')
     parser.add_argument('-ri', type=str, help='Resize image with specified size (width,height).')
