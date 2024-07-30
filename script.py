@@ -1,7 +1,7 @@
 import argparse
 import requests
 from removebg import RemoveBg
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 from colorama import init, Fore, Style
 import json
 
@@ -38,7 +38,7 @@ def resize_image(input_file, ri):
             raise ValueError(f"{Fore.RED}Size must be a tuple of two integers (width, height).")
     except ValueError as e:
          print(f"{Fore.RED}Invalid size format: {e}")
-            
+        
     try:
         img = Image.open(input_file)
         resized_img = img.resize(new_size)
@@ -53,7 +53,7 @@ def get_image_size(input_file):
         width, height = img.size
         return width, height
     except Exception as e:
-        print(f"{Fore.RED}An error occurred while getting the image size: {e}")
+        print(f"{Fore.RED}An error occurred while getting the image: {e}")
         return None
 
 def handle_image_file(input_file):
@@ -61,6 +61,12 @@ def handle_image_file(input_file):
         img = Image.open(input_file)
     except FileNotFoundError as e:
         print(f"{Fore.RED}The file is not found {e}")
+        quit()
+    except UnidentifiedImageError:
+        print(f"{Fore.RED}The file is not a valid image: {input_file}")
+        quit()
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred while handling the image: {e}")    
         quit()
             
 def main():
