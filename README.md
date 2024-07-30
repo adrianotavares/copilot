@@ -47,7 +47,7 @@ To remove the background from an image, run the following command:
 To resize an image, run the following command:
 
 - ```-ri```: Flag to resize the image.
-- ```width,height```: The new dimensions of the image (width, height).
+- ```width,height```: The new dimensions of the image.
 - ```input_file```: The path to the image file to be processed.
 
 ### Get Image Size
