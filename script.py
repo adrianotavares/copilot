@@ -16,6 +16,8 @@ class ColoredHelpFormatter(argparse.HelpFormatter):
     def format_help(self):
         help_text = super().format_help()
         return f"{Fore.BLUE}{help_text}{Style.RESET_ALL}"
+    
+    #pull request test  
         
 def remove_background(input_file):
     try:
@@ -26,7 +28,7 @@ def remove_background(input_file):
     except requests.exceptions.HTTPError as e:
             print(f"{Fore.RED}API KEY error occurred: {e}")
     except Exception as e:
-        print(f"{Fore.RED}An error occured: {e}")         
+        print(f"{Fore.RED}An error occured: {e}")    
 
 def resize_image(input_file, ri):
     try:
