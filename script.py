@@ -16,8 +16,6 @@ class ColoredHelpFormatter(argparse.HelpFormatter):
     def format_help(self):
         help_text = super().format_help()
         return f"{Fore.BLUE}{help_text}{Style.RESET_ALL}"
-    
-    #pull request test  
         
 def remove_background(input_file):
     try:
