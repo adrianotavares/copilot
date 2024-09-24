@@ -31,7 +31,7 @@ cd yourrepository
 
 ```bash
 pip install -r removebg
-pip install -r Pillow
+pip install Pillow
 ```
 
 ## Usage
